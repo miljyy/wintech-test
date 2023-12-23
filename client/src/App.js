@@ -11,6 +11,10 @@ import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 
+import ActivitiesList from "./components/activities-list.component";
+import Activity from "./components/activity.component";
+import AddActivity from "./components/add-activity.component";
+
 import AuthVerify from "./common/auth-verify";
 import EventBus from "./common/EventBus";
 
@@ -57,16 +61,27 @@ class App extends Component {
             wintech
           </Link>
           <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
 
             {currentUser && (
               <li className="nav-item">
                 <Link to={"/user"} className="nav-link">
                   User
+                </Link>
+              </li>
+            )}
+            
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/activities"} className="nav-link">
+                  My Trips
+                </Link>
+              </li>
+            )}
+            
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/add"} className="nav-link">
+                  Add Activity
                 </Link>
               </li>
             )}
@@ -110,6 +125,9 @@ class App extends Component {
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/user" element={<BoardUser />} />
+            <Route path="/activities" element={<ActivitiesList/>} />
+            <Route path="/add" element={<AddActivity/>} />
+            <Route path="/activities/:id" element={<Activity/>} />
           </Routes>
         </div>
 
