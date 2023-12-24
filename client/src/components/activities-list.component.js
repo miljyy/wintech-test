@@ -72,6 +72,11 @@ export default class ActivitiesList extends Component {
   }
 
   searchTitle() {
+    this.setState({
+      currentTutorial: null,
+      currentIndex: -1
+    });
+    
     ActivityDataService.findByTitle(this.state.searchTitle)
       .then(response => {
         this.setState({

@@ -71,7 +71,7 @@ export default class AddActivity extends Component {
           {this.state.submitted ? (
             <div>
               <h4>You submitted successfully!</h4>
-              <button className="btn btn-success" onClick={this.newActivity}>
+              <button className="btn btn-success" onClick={this.newActivity()}>
                 Add
               </button>
             </div>
